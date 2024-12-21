@@ -1,0 +1,11 @@
+<div class="expansion-container">
+  <div *ngIf="posts.length > 0; else noPosts">
+    <div class="expansion-container" *ngFor="let post of posts">
+      <p>{{ post.title }}</p>
+      <p>{{ post.content }}</p>
+    </div>
+  </div>
+  <ng-template #noPosts>
+    <p>Brak postów!</p>
+  </ng-template>
+</div>

@@ -1,0 +1,19 @@
+.expansion-container {
+  margin: 20px auto;
+  padding: 16px;
+  max-width: 800px;
+  background-color: #fafafa; // Jasne tło dla eleganckiego wyglądu
+  border-radius: 8px; // Zaokrąglone rogi
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); // Subtelny cień
+  border: 1px solid #e0e0e0; // Subtelne obramowanie
+
+  // Responsywność
+  @media (max-width: 768px) {
+    padding: 8px; // Mniejsze odstępy na mniejszych ekranach
+    max-width: 100%; // Pełna szerokość na urządzeniach mobilnych
+  }
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px; // Odstępy między dziećmi w kontenerze
+}
