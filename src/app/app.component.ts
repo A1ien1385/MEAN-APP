@@ -2,11 +2,9 @@ import { Component } from '@angular/core';
 import { PostsComponent } from './posts/posts.component';
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './post-list/post-list.component';
+import { Post } from './post.model';
 
-interface Post {
-  title: string;
-  content: string;
-}
+
 
 @Component({
   selector: 'app-root',

@@ -1,11 +1,10 @@
 import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { Post } from '../post.model';
+import { PostsService } from '../posts.service';
 
-interface Post {
-  title: string;
-  content: string;
-}
+
 
 @Component({
   selector: 'app-post-list',
@@ -17,7 +16,7 @@ interface Post {
 export class PostListComponent implements OnInit {
   @Input() posts: Post[] = [];
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef,public postsService: PostsService) {}
 
   ngOnInit(): void {
     this.cdr.detectChanges(); // Wymuszenie wykrycia zmian
