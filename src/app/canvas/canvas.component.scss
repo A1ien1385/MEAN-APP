@@ -1,15 +1,22 @@
-canvas {
-    border: 3px solid rgba(114, 76, 152, 0.2);; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    border-radius: 10px; 
-    background-color: white;
-}
-
-div {
-    margin: 15px 0;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    height: 50vh; 
-    background-color: #f9f9f9;
-}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .canvas-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .output-container img {
+    max-width: 100%;
+    border: 1px solid #000;
+  }
+  
