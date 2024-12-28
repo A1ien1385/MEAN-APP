@@ -4,6 +4,15 @@
       <p>{{ post.title }}</p>
       <p>{{ post.content }}</p>
     </div>
+    <button 
+    mat-raised-button 
+    style="margin-right: 5px;"
+    color="primary" 
+    >Edytuj post</button>
+    <button 
+    mat-raised-button 
+    color="warn" 
+    >Usuń post</button>
   </div>
   <ng-template #noPosts>
     <p>Brak postów!</p>
