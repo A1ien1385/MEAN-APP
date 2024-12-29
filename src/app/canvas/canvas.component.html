@@ -1,12 +1,50 @@
 <div class="container">
-    <h1>Image Processor</h1>
-    <input #fileInput type="file" accept="image/*" (change)="onFileChange($event)" />
-    <div class="canvas-container">
-      <canvas #canvas></canvas>
-    </div>
-    <div class="output-container" *ngIf="processedImageSrc">
-      <h2>Processed Image</h2>
-      <img [src]="processedImageSrc" alt="Processed Image" />
-    </div>
+  <h1 style="color: #3f51b5;">Image Processor</h1>
+  <input #fileInput type="file" accept="image/*" (change)="onFileChange($event)" />
+ 
+  <div class="canvas-container">
+    <canvas #canvas></canvas>
   </div>
-  
+
+  <div>
+    <button
+      *ngIf="ifIsActive === true"
+      (click)="toggleGrayscale()"
+      mat-raised-button
+      color="primary"
+      type="button"
+    >
+      {{ grayscaleApplied ? 'Cofnij skalę szarości' : 'Dodaj skalę szarości' }}
+    </button>
+
+    <button
+      *ngIf="ifIsActive === true"
+      (click)="toggleBW()"
+      mat-raised-button
+      color="primary"
+      type="button"
+    >
+      {{ bwApplied ? 'Cofnij czerń-biel' : 'Dodaj czerń-biel' }}
+    </button>
+
+    <button
+      *ngIf="ifIsActive === true"
+      (click)="applySepia()"
+      mat-raised-button
+      color="primary"
+      type="button"
+    >
+      {{ sepiaApplied ? 'Cofnij sepie' : 'Dodaj sepie' }}
+    </button>
+
+    <button
+      *ngIf="ifIsActive === true"
+      (click)="downloadImage()"
+      mat-raised-button
+      color="warn"
+      type="button"
+    >
+      Pobierz obraz
+    </button>
+  </div>
+</div>

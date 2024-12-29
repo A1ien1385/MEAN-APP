@@ -1,22 +1,35 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .canvas-container {
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-  
-  canvas {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .output-container img {
+ .output-container img {
     max-width: 100%;
     border: 1px solid #000;
   }
   
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-width: 50vw; /* Maksymalna szerokość 50% okna */
+
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  width: 100%; /* Dopasowanie do kontenera */
+  height: auto; /* Proporcjonalne skalowanie */
+  max-width: 100%;
+  max-height: 100%;
+}
+
+button {
+  margin-right: 5px;
+}
