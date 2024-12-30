@@ -46,5 +46,35 @@
     >
       Pobierz obraz
     </button>
+    <button
+    *ngIf="ifIsActive === true"
+    (click)="resetImage()"
+    mat-raised-button
+    color="accent"
+    type="button"
+  >
+    Resetuj obraz
+  </button>
   </div>
+  <div>
+    <button
+      *ngIf="ifIsActive === true"
+      (click)="adjustBrightness(-10)"
+      mat-raised-button
+      color="accent"
+      type="button"
+    >
+      Przyciemnij obraz
+    </button>
+    <button
+      *ngIf="ifIsActive === true"
+      (click)="adjustBrightness(10)"
+      mat-raised-button
+      color="accent"
+      type="button"
+    >
+      Rozjaśnij obraz
+    </button>
+  </div>
+  
 </div>

@@ -1,11 +1,12 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-canvas',
   standalone: true,
-  imports: [CommonModule, MatButtonModule],
+  imports: [CommonModule, MatButtonModule, MatIconModule],
   templateUrl: './canvas.component.html',
   styleUrls: ['./canvas.component.scss'],
 })
@@ -190,5 +191,49 @@ export class CanvasComponent implements AfterViewInit {
     a.download = 'przetworzony-obraz.png'; // Domyślna nazwa pliku
     a.click(); // Symulujemy kliknięcie w link
   }
+
+  adjustBrightness(amount: number): void {
+    const canvas = this.canvasRef.nativeElement;
+    const context = canvas.getContext('2d');
+  
+    if (!context || !this.originalImageData) {
+      console.error('No image loaded or context is not available.');
+      return;
+    }
+  
+    // Pobierz dane obrazu z canvas
+    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+  
+    // Iteruj przez każdy piksel obrazu
+    for (let i = 0; i < data.length; i += 4) {
+      data[i] = Math.min(255, Math.max(0, data[i] + amount)); // Red
+      data[i + 1] = Math.min(255, Math.max(0, data[i + 1] + amount)); // Green
+      data[i + 2] = Math.min(255, Math.max(0, data[i + 2] + amount)); // Blue
+    }
+  
+    // Zastosuj zmienione dane do obrazu
+    context.putImageData(imageData, 0, 0);
+  }
+
+  resetImage(): void {
+    const canvas = this.canvasRef.nativeElement;
+    const context = canvas.getContext('2d');
+  
+    if (!context || !this.originalImageData) {
+      console.error('No image loaded or context is not available.');
+      return;
+    }
+  
+    // Przywrócenie oryginalnego obrazu na canvas
+    context.putImageData(this.originalImageData, 0, 0);
+  
+    // Reset flag efektów
+    this.grayscaleApplied = false;
+    this.bwApplied = false;
+    this.sepiaApplied = false;
+  }
+  
+  
   
 }
